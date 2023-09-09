@@ -1,0 +1,44 @@
+create database imdb;
+use imdb;
+create table if not exists employee(
+id int,
+name varchar(10),
+city varchar(10),
+pn_num int);
+insert into employee values(1,"ashok","tuni",994467);
+select * from employee;
+
+drop table employee;
+show tables;
+drop database imdb;
+
+
+
+create database details;
+use details;
+create table if not exists employee
+(id int,
+name varchar(10),
+city varchar(10),
+depart_id int
+);
+select id , name ,depart_id from employee;
+select * from employee;
+insert into employee values(2,"surya","kkd",1002)
+insert into employee values(3,"phani","rjy",1002);
+insert into employee values(4,"mahesh","kkd",1002);
+
+
+create table depart
+(id int ,
+dpt_name varchar(10));
+insert into depart values(1001,"service");
+insert into depart values(1002,"finance");
+insert into depart values(1003,"support");
+select * from depart;
+
+show tables ;
+delete from depart where id = 1001;
+drop table depart;
+ select employee.id , employee.name , employee.city, depart.dpt_name from employee inner join depart on employee.depart_id = depart.id;
+select e.id as id , e.name as name, e.city as cit ,d.dpt_name  as depart_nam from employee e inner join depart d on e.id = d.id;
